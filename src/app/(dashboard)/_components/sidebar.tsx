@@ -1,50 +1,66 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Sidebar(){ 
+export default function Sidebar() {
+  const pathname = usePathname();
+  const isActive = (path: string) => pathname === path;
 
+  return (
+    <aside className="w-full border-b border-gray-200 bg-white p-4 md:w-64 md:border-b-0 md:border-r">
+      
+      <h2 className="mb-6 rounded-lg bg-red-500 p-3 text-center text-lg font-bold text-white">
+        Dashboard
+      </h2>
 
-        const pathName = usePathname()
+      <nav>
+        <ul className="flex gap-4 md:flex-col">
+          <li>
+            <Link
+              href="/"
+              className={`${
+                isActive("/") ? "font-bold text-red-500" : "text-gray-700"
+              } hover:text-red-500`}
+            >
+              Overview
+            </Link>
+          </li>
 
-        const isActive = (path: string) => pathName === path;
+          <li>
+            <Link
+              href="/projects"
+              className={`${
+                isActive("/projects") ? "font-bold text-red-500" : "text-gray-700"
+              } hover:text-red-500`}
+            >
+              Projects
+            </Link>
+          </li>
 
-        return (
-            <div style={{display: "flex",padding: "20px",
-              borderRight: "2px solid #555", gap: "30px" , margin: "20px", minHeight: "100vh"}} >
-                
+          <li>
+            <Link
+              href="/courses"
+              className={`${
+                isActive("/courses") ? "font-bold text-red-500" : "text-gray-700"
+              } hover:text-red-500`}
+            >
+              Courses
+            </Link>
+          </li>
 
-                {/* SideBar */}
-                <aside style={{width: "220px", gap: "30px", padding: "20px", borderRight: "2px solid #eee", }} >
-                    <h2 style={{marginBottom: "20px", border: "1px solid #eee",
-                         borderRadius: "8px", padding: "10px", textAlign: "center", backgroundColor: "red"}}> Dashboard  </h2>
-                         <br />
-
-                    <nav>
-                        <ul style={{listStyle: "none", padding: 0}} >
-                            <li>
-                              <Link href="/" 
-                              style={{fontWeight: isActive("/") ? "bold" : "normal"}}>OverView</Link>
-                            </li>
-                            <li>
-                                <Link href="/projects"
-                                style={{fontWeight: isActive("/projects") ? "bold" : "normal"}}> Projects </Link>
-                            </li>
-                              <li>
-                                <Link href="/courses"
-                                style={{fontWeight: isActive("/courses") ? "bold" : "normal"}}>Courses </Link>
-                            </li>
-                              <li>
-                                <Link href="/settings"
-                                style={{fontWeight: isActive("/settings") ? "bold" : "normal"}}> Settings </Link>
-                            </li>
-
-                        </ul>
-                    </nav>
-
-                </aside>
-            </div>
-        )
-     }
+          <li>
+            <Link
+              href="/settings"
+              className={`${
+                isActive("/settings") ? "font-bold text-red-500" : "text-gray-700"
+              } hover:text-red-500`}
+            >
+              Settings
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  );
+}

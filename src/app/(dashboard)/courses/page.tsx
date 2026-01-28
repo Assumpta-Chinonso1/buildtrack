@@ -1,23 +1,33 @@
+import Link from "next/link"
 
-export default function CoursesPage(){
-    return (
-        <div style={{ padding: "20px", background: "#f9f9f9", borderRadius: "8px", boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>
-            <div style={{ maxWidth: "600px", margin: "0 auto" }}>
-                <h1 style={{ fontSize: "2rem", marginBottom: "10px" }}>Courses Page</h1>
-                <p style={{ fontSize: "1.2rem", color: "#555" }}>Browse and manage your courses here.</p>
+
+const courses = [
+    { id: "react", name: "React for Beginners", description: "Learn the basics of React.js" },
+    { id: "nextjs", name: "Next.js Fundamentals", description: "Get started with Next.js framework" },
+    { id: "typescript", name: "TypeScript Essentials", description: "Understand TypeScript and its features" },
+    { id: "nodejs", name: "Node.js Basics", description: "Introduction to server-side JavaScript with Node.js" },
+    {id: "tailwind", name: "Tailwind CSS", description: "Learn how to style your applications with Tailwind CSS" },
+]
+
+export default function CoursesPage() {
+
+    return(
+        <div className="min-h-screen p-8 bg-black/5">
+            <div className="max-w-5xl mx-auto">
+                <h1 className="text-3xl font-bold mb-6">Courses</h1>
+                <ul className="space-y-4">
+                    {courses.map((course) => (
+                        <li key={course.id}>
+                        <div className="p-4 bg-white rounded shadow">
+                            <Link href={`/courses/${course.id}`} className="no-underline hover:underline">
+                                <h2 className="text-xl font-semibold">{course.name}</h2>
+                                <p className="text-gray-600">{course.description}</p>
+                            </Link>
+                        </div>
+                        </li>
+                    ))}
+                </ul>
             </div>
-            <li style={{ listStyle: "none", padding: "10px 0" }}>
-                <strong>Course Progress:</strong> Track your learning progress and achievements.
-                <li style={{ listStyle: "none", padding: "10px 0" }}>
-                         </li>
-                         <li style={{ listStyle: "none", padding: "10px 0" }}>
-                    <strong>Course Materials:</strong> Access downloadable resources and course content.
-                </li>
-       
-            <li style={{ listStyle: "none", padding: "10px 0" }}>
-                <strong>Course Schedule:</strong> View and manage your course schedule and time slots.
-            </li>
-                 </li>
         </div>
-    );
+    )
 }

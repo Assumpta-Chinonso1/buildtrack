@@ -1,22 +1,30 @@
+import Link from "next/link";
+
+const settings = [
+    { id: "profile", name: "Profile Settings", description: "Manage your profile information" },
+    { id: "account", name: "Account Settings", description: "Update your account preferences" },
+    { id: "notifications", name: "Notification Settings", description: "Configure your notification preferences" },
+    { id: "privacy", name: "Privacy Settings", description: "Adjust your privacy settings" },
+]
+
 export default function SettingsPage() {
-    return (
-        <div style={{ padding: "20px", background: "#f9f9f9", borderRadius: "8px", boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>
-            <div style={{ maxWidth: "600px", margin: "0 auto" }}>
-                <h1 style={{ fontSize: "2rem", marginBottom: "10px" }}>Settings Page</h1>
-                <p style={{ fontSize: "1.2rem", color: "#555" }}>Manage your application settings here.</p>
-                <li style={{ listStyle: "none", padding: "10px 0" }}>
-                    <strong>Notification Preferences:</strong> Customize how you receive notifications.
-
-                </li>
-                <li style={{ listStyle: "none", padding: "10px 0" }}>
-                    <strong>Privacy Settings:</strong> Control your data sharing and visibility options.
-                </li>
-                <li style={{ listStyle: "none", padding: "10px 0" }}>
-                    <strong>Account Management:</strong> Update your account information and password.
-                </li>
-
+    return(
+        <div className="min-h-screen p-8 bg-gray-50">
+            <div className="max-w-5xl mx-auto">
+                <h1 className="text-3xl font-bold mb-6">Settings</h1>
+                <ul className="space-y-4">
+                    {settings.map((setting) => (
+                        <li key={setting.id}>
+                            <div className="p-4 bg-white rounded shadow">
+                                <Link href={`/settings/${setting.id}`} className="no-underline hover:underline">
+                                    <h2 className="text-xl font-semibold">{setting.name}</h2>
+                                    <p className="text-gray-600">{setting.description}</p>
+                                </Link>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
             </div>
-           
         </div>
-    );
+    )
 }
