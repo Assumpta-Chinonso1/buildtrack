@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 export default function ProjectError({
   error,
   reset,
@@ -7,6 +9,7 @@ export default function ProjectError({
   error: Error;
   reset: () => void;
 }) {
+    const router = useRouter()
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black/5">
       <h2 className="text-2xl font-bold mb-2">
@@ -22,6 +25,12 @@ export default function ProjectError({
         className="px-4 py-2 bg-black text-white rounded"
       >
         Try again
+      </button>
+      <button onClick={() => router.push("/")}
+        className="mt-4 px-4 py-2 bg-gray-500 text-white rounded"
+      >
+        Go to Home
+
       </button>
     </div>
   );
