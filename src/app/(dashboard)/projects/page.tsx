@@ -20,7 +20,9 @@ export default function ProjectsPage() {
                     {projects.map((project) => (
                         <li key={project.id}>
                             <div className="p-4 bg-white rounded shadow">
-                                 <Link href={`/projects/${project.id}`} className="no-underline hover:underline">
+                                 <Link href={`/projects/${project.id}`} 
+                                
+                                 className="no-underline hover:underline">
                                 <h2 className="text-xl font-semibold">{project.name}</h2>
                                 <p className="text-gray-600">{project.description}</p>
                                 </Link>

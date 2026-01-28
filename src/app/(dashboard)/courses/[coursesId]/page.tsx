@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 
+
 type CoursesPageProps = {
     params: Promise<{
         coursesId: string;
@@ -10,6 +11,7 @@ const validCourseIds = ["react", "nextjs", "typescript", "nodejs", "tailwind"];
 
 export default async function CoursePage({ params }: CoursesPageProps) {
     const { coursesId } = await params;
+     await new Promise((resolve) => setTimeout(resolve, 1500));
     if(coursesId === "crash"){
         throw new Error("Simulated crash for testing purposes");
     }

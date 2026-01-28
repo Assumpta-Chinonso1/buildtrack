@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+
 type PageProps = {
     params: Promise<{
         projectId: string;
@@ -8,6 +9,9 @@ const validProjectIds = ["Alpha", "Beta", "Gamma", "Zeta", "iphone", "macbook", 
 
 export default async function ProjectPage({ params }: PageProps) {
       const { projectId } = await params;
+           
+      await  new Promise((resolve) => setTimeout(resolve, 1500));
+
       if(projectId === "crash"){
         throw new Error("Simulated crash for testing purposes");
       }

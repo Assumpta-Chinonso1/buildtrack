@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 
+
 type SettingsPageProps = {
     params: Promise<{
         settingsId: string;
@@ -11,6 +12,7 @@ const validSettingsIds = ["profile", "account", "preferences", "privacy", "notif
 
 export default async function SettingsPage({params} : SettingsPageProps) {
     const { settingsId } = await params;
+    await new Promise((resolve) => setTimeout(resolve, 1500))
     if (!validSettingsIds.includes(settingsId)) {
         notFound();
     }
