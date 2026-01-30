@@ -59,6 +59,17 @@ export default function Sidebar() {
               Settings
             </Link>
           </li>
+          <li>
+  <Link
+    href="/fees/123"
+    className={`${
+      isActive("/fees") ? "font-bold text-red-500" : "text-gray-700"
+    } hover:text-red-500`}
+  >
+    Fees
+  </Link>
+</li>
+
         </ul>
       </nav>
     </aside>
