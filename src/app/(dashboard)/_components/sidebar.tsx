@@ -21,8 +21,7 @@ export default function Sidebar() {
               href="/"
               className={`${
                 isActive("/") ? "font-bold text-red-500" : "text-gray-700"
-              } hover:text-red-500`}
-            >
+              } hover:text-red-500`}>
               Overview
             </Link>
           </li>
