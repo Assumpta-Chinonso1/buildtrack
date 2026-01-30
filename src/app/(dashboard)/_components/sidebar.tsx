@@ -31,8 +31,7 @@ export default function Sidebar() {
               href="/projects"
               className={`${
                 isActive("/projects") ? "font-bold text-red-500" : "text-gray-700"
-              } hover:text-red-500`}
-            >
+              } hover:text-red-500`}>
               Projects
             </Link>
           </li>
