@@ -1,3 +1,8 @@
+export async function generateStaticParams() {
+    return [{id: '1'}, {id: "2"}, {id: "3"}, {id: "4"}]
+    
+}
+
 import Link from "next/link"
 
 export default function GoodsPage() {
