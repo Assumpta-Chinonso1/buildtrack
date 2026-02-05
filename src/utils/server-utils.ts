@@ -1,3 +1,4 @@
+import "server-only"
 
 export const ServerSideFunction  = () => {
     console.log(

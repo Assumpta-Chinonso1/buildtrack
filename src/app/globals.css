@@ -2,7 +2,7 @@
 
 /* Base colors */
 :root {
-  --background: #fafafa;
+  --background: #333;
   --foreground: #0f172a;
 }
 
@@ -10,4 +10,15 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+
+.image-slider-container{
+  margin: 20px;
+  width:  400px;
+}
+
+.image-slider-container .slider-prev:before,
+.image-slider-container .slider-next:before{
+  color: black;
 }
