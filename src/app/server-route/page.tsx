@@ -9,7 +9,7 @@ export default function ServerRoutePage() {
   
   return (
   <>
-  <h1>Server Page {result} </h1>
+  <h1>Server Route Page {result} </h1>
     <ImageSlider/>
   </>
  
