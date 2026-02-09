@@ -13,7 +13,7 @@ export default function ClientRoutePage() {
 
     const theme = useTheme()
 
-    const settings = {
+     const settings = {
 
         dots: true,
     }
