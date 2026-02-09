@@ -20,7 +20,7 @@ export default function ClientRoutePage() {
     //const result = ServerSideFunction()
     return (
         <div className="image-slider-container">
-            <Slider {...settings}>
+              <Slider {...settings}>
                 <div>
                     <img src="https://picsum.photos/400/200" />
                   </div>
