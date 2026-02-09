@@ -26,8 +26,8 @@ export default function ClientRoutePage() {
                   </div>
                 <div>
                            <img src="https://picsum.photos/400/200" />
-                </div>
-                <div>
+                   </div>
+                   <div>
                     <img src="https://picsum.photos/400/200" />
                 </div>
                 <div>
