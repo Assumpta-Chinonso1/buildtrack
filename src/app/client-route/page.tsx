@@ -4,13 +4,17 @@ import React from "react"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import { useTheme } from "@/components/theme-provider"
 
 
 //import { ServerSideFunction } from "@/utils/server-utils"
 
 export default function ClientRoutePage() {
 
+    const theme = useTheme()
+
     const settings = {
+
         dots: true,
     }
     //const result = ServerSideFunction()
@@ -21,7 +25,7 @@ export default function ClientRoutePage() {
                     <img src="https://picsum.photos/400/200" />
                 </div>
                 <div>
-                    <img src="https://picsum.photos/400/200" />
+                           <img src="https://picsum.photos/400/200" />
                 </div>
                 <div>
                     <img src="https://picsum.photos/400/200" />
@@ -30,6 +34,8 @@ export default function ClientRoutePage() {
                     <img src="https://picsum.photos/400/200" />
                 </div>
             </Slider>
+
+            <h1 style={{color: theme.colors.secondary}} >Client Route Page </h1>
 
         </div>
     )

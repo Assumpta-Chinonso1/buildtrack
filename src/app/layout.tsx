@@ -1,27 +1,13 @@
 import './globals.css';
 import './lib/fontawesome';
 import { Inter } from 'next/font/google';
-import { createContext } from 'react';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
 })
-type Theme = {
-  colors: {
-    primary: string
-    secondary: string
-  }
-}
 
-const defaultTheme: Theme = {
-  colors: {
-    primary: "#007bff",
-    secondary: "#6c757d"
-  }
-}
-
-const  ThemeContext = createContext<Theme>(defaultTheme)
 
 export const metadata = {
   title: "BuildTrack",
@@ -35,11 +21,11 @@ export default  function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ThemeContext.Provider value={defaultTheme}> 
+      <ThemeProvider> 
 
       
       <body className={inter.variable}>{children}</body>
-      </ThemeContext.Provider>
+      </ThemeProvider>
     </html>
   )
 }
