@@ -23,7 +23,7 @@ export default function ClientRoutePage() {
             <Slider {...settings}>
                 <div>
                     <img src="https://picsum.photos/400/200" />
-                </div>
+                  </div>
                 <div>
                            <img src="https://picsum.photos/400/200" />
                 </div>
