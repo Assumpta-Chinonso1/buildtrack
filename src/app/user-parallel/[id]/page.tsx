@@ -38,7 +38,7 @@ export default async function UserSProfile({
 }) {
     const {id} = await params
 
-    const postsData = getUserPosts(id)
+     const postsData = getUserPosts(id)
     const albumsData = getUserAlbums(id)
 
 
