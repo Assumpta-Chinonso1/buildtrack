@@ -1,13 +1,9 @@
 export default function GlobalLoading() {
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-black/5">
-            <h2 className="text-2xl font-bold mb-2">
-                Loading...
-            </h2>
-            <p className="text-lg text-gray-700">
-                Please wait while we fetch the data.
-            </p>
-         
+        <div className="flex items-center justify-center h-screen">
+            <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-600"></div>
+                
+            
         </div>
     );
 }
