@@ -5,6 +5,7 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { useTheme } from "@/components/theme-provider"
+import { ClientSideFunction } from "@/utils/client-utils"
 
 
 //import { ServerSideFunction } from "@/utils/server-utils"
@@ -12,6 +13,7 @@ import { useTheme } from "@/components/theme-provider"
 export default function ClientRoutePage() {
 
     const theme = useTheme()
+    const result = ClientSideFunction()
 
      const settings = {
 
@@ -36,6 +38,7 @@ export default function ClientRoutePage() {
             </Slider>
 
             <h1 style={{color: theme.colors.secondary}} >Client Route Page </h1>
+            <p>{result}</p>
 
         </div>
     )
