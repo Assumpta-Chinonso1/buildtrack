@@ -1,18 +1,10 @@
-import { Submit } from "@/components/submit"
-import { getProductById } from "@/prisma-db"
-import { redirect } from "next/navigation"
+"use client"
+
 import { useActionState } from "react";
+import { FormSate, createProduct } from "@/actions/product";
 
 
-type Errors = {
-    title?: string;
-    price?: string;
-    description?: string;
-}
 
-type FormSate = {
-    errors: Errors
-}
 
 export default function ProductDbCreatePage() {
 
@@ -23,35 +15,7 @@ export default function ProductDbCreatePage() {
   const [state, formAction, isPending] =
     useActionState(createProduct, initialState)
 
-    async function createProduct(formData: FormData) {
-
-   "use server"
-
-    const title = formData.get("title") as string
-    const price = formData.get("price") as string
-    const description = formData.get("description") as string
-
-    const errors: Errors = {}
-
-    if(!title) {
-            errors.title = "Title is required"
-    }
-    if(!price) {
-            errors.price = "Price is required"
-    }
-    if(!description) {
-            errors.description = "Description is required"
-    }
-
-    if(Object.keys(errors).length > 0){
-        return {errors}
-    }
- 
-  await getProductById(title, parseInt(price), description)
-
-  redirect("/service")
     
-}
 
      return (
         <form action={formAction}  className="  max-w-md mx-auto mt-12 p-6 bg-white shadow-md rounded-lg">
