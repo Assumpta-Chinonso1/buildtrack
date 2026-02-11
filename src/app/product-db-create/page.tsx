@@ -72,3 +72,4 @@ export default function ProductDbCreatePage() {
 }
 ///useformstatus vs useActionstatus
 //update server Action
+//delete server action
