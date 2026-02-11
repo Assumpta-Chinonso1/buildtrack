@@ -1,6 +1,5 @@
 "use client"
 
-import { Submit } from "@/components/submit"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
@@ -69,7 +68,13 @@ export default function ReactFormPage() {
                     required
                 />
             </div>
-            <Submit/>
+            <button 
+                type="submit" 
+                disabled={loading}
+                className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-900 disabled:opacity-50"
+            >
+                {loading ? "Creating..." : "Create Product"}
+            </button>
         </form>
     )
 }
