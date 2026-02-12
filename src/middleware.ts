@@ -1,18 +1,29 @@
-import { NextRequest } from "next/server";
+import { clerkMiddleware } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
-export function middleware(request: NextRequest) {
+export const middleware = clerkMiddleware((auth, request) => {
+  const response = NextResponse.next();
 
-    const response = NextResponse.next()
-    const themePreference = request.cookies.get("theme")
-    if (!themePreference) {
-        response.cookies.set("them", "light")
-        
-    }
+  // Theme cookie logic
+  const themePreference = request.cookies.get("theme");
 
-    response.headers.set("custom-header", "custome-value")
+  if (!themePreference) {
+    response.cookies.set("theme", "light"); // fixed typo: them → theme
+  }
 
-    return response
+  // Custom header
+  response.headers.set("custom-header", "custom-value");
+
+  return response;
+});
+
+export const config = {
+  matcher: [
+    '/((?!_next|.*\\..*).*)',
+    '/(api|trpc)(.*)',
+  ],
+};
+
 
 
     //if (request.nextUrl.pathname === "/profile") {
@@ -22,7 +33,7 @@ export function middleware(request: NextRequest) {
    // }
     //return NextResponse.redirect(new URL("/", request.url))
     
-}
+//}
 
 //export const config = {
    // matcher: "/profile",

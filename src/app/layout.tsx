@@ -26,14 +26,17 @@ export default  function RootLayout({
   return (
     <ClerkProvider>
     <html lang="en">
-      <ThemeProvider> 
+      
 
       
       <body className={inter.variable}>
+        <ThemeProvider> 
         <Navigation/>
-        {children}</body>
+        {children}
+         </ThemeProvider>
+         </body>
 
-      </ThemeProvider>
+     
     </html>
     </ClerkProvider>
   )
