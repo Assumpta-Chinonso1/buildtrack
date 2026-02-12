@@ -1,7 +1,15 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
-export const middleware = clerkMiddleware((auth, request) => {
+  //const isUserProtectedProfile = createRouteMatcher("/user-profile");
+ const isPublicRoute = createRouteMatcher(["/", "/sign-in(.*)", "sign-up(.*)"]);
+export const middleware = clerkMiddleware( async (auth, request) => {
+
+    const {userId, redirectToSignIn} = await auth()
+
+    if(!userId && !isPublicRoute(request)) {
+      return redirectToSignIn();
+    }
   const response = NextResponse.next();
 
   // Theme cookie logic
