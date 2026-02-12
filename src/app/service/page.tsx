@@ -13,6 +13,7 @@ export default async function ServiceDBPage({
 } : {
     searchParams: Promise<{query?: string}> }) {
 
+        
         const {query} = await searchParams
 const products: Product[] =    await getProducts(query)
 

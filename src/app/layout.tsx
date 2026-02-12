@@ -1,3 +1,6 @@
+import {ClerkProvider} from '@clerk/nextjs';
+
+
 import './globals.css';
 import './lib/fontawesome';
 import { Inter } from 'next/font/google';
@@ -20,6 +23,7 @@ export default  function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <ThemeProvider> 
 
@@ -27,5 +31,6 @@ export default  function RootLayout({
       <body className={inter.variable}>{children}</body>
       </ThemeProvider>
     </html>
+    </ClerkProvider>
   )
 }
