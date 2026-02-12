@@ -1,10 +1,11 @@
-import {ClerkProvider} from '@clerk/nextjs';
+import { ClerkProvider } from '@clerk/nextjs';
 
 
 import './globals.css';
 import './lib/fontawesome';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
+import { Navigation } from '@/components/navigation';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -28,7 +29,10 @@ export default  function RootLayout({
       <ThemeProvider> 
 
       
-      <body className={inter.variable}>{children}</body>
+      <body className={inter.variable}>
+        <Navigation/>
+        {children}</body>
+
       </ThemeProvider>
     </html>
     </ClerkProvider>
