@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { Search } from "@/components/searrch";
 
  export default function HomePage() {
   
@@ -10,6 +11,7 @@ import Link from "next/link";
           display: "flex", alignItems: "center", justifyContent: "center", 
         }}>
            <section style={{ maxWidth: "600px", margin: "0 auto" }}>
+            <Search/>
             <div style={{ maxWidth: "600px", margin: "0 auto" }}>
                 <h1 style={{ fontSize: "2.5rem", marginBottom: "20px" }}>Welcome to the Dashboard</h1>
                 <p style={{ fontSize: "1.2rem", color: "#555" }}>

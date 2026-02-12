@@ -8,8 +8,13 @@ type Product = {
 }
 
 
-export default async function ServiceDBPage() {
-const products: Product[] =    await getProducts()
+export default async function ServiceDBPage({
+    searchParams, 
+} : {
+    searchParams: Promise<{query?: string}> }) {
+
+        const {query} = await searchParams
+const products: Product[] =    await getProducts(query)
 
 
 return(
