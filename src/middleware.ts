@@ -3,12 +3,20 @@ import { NextResponse } from "next/server";
 
   //const isUserProtectedProfile = createRouteMatcher("/user-profile");
  const isPublicRoute = createRouteMatcher(["/", "/sign-in(.*)", "sign-up(.*)"]);
+
+ const isAdminRoute = createRouteMatcher("/admin(.*)");
+
 export const middleware = clerkMiddleware( async (auth, request) => {
 
     const {userId, redirectToSignIn} = await auth()
 
     if(!userId && !isPublicRoute(request)) {
       return redirectToSignIn();
+    }
+
+    if(isAdminRoute(request) && ((await auth()).sessionClaims?.metadata?.role !== "admin")){
+      const url = new URL("/", request.url)
+      return NextResponse.redirect(url)
     }
   const response = NextResponse.next();
 
