@@ -37,7 +37,7 @@ export default  async function AdminPage() {
                       <button type="submit" className="px-2 py-1 text-sm border border-neutral-300 dark:border-neutral-50">
                         Make Admin
                       </button>
-                            </form>
+                             </form>
 
                             <form action={promoteToAdmin} className="inline">
                                    <input type="hidden" value={user.id} name="id" />
